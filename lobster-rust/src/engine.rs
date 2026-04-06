@@ -16,8 +16,8 @@ pub async fn run_workflow(workflow: &Workflow, ctx: &ExecutionContext) -> Result
 
     for step in &workflow.steps {
         let span = span!(Level::INFO, "workflow.step",
-            lobster.step_name = step.id.as_str(),
-            lobster.tool_id = workflow.name.as_str()
+            "lobster.step_name" = step.id.as_str(),
+            "lobster.tool_id" = workflow.name.as_str()
         );
         let _enter = span.enter();
 

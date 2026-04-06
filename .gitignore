@@ -21,3 +21,5 @@ clawdbot_enhancement.md
 # Environment
 .env
 .env.local
+lobster-rust/target/
+lobster-rust/Cargo.lock

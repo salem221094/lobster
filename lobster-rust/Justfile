@@ -1,0 +1,27 @@
+# Default target: list commands
+default:
+    @just --list
+
+# Build the binary in release mode
+build:
+    cargo build --release
+
+# Run unit tests
+test:
+    cargo test
+
+# Start the MCP server
+mcp:
+    cargo run -- mcp
+
+# Run a sample workflow
+run file args="{}":
+    cargo run -- run --file {{file}} --args {{args}}
+
+# Build the Docker image
+docker-build:
+    docker build -t lobster-rust:latest .
+
+# Run the Docker container
+docker-run:
+    docker run -it --name lobster-rust -v $(pwd)/workflows:/app/workflows lobster-rust:latest

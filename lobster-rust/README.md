@@ -21,3 +21,15 @@ High-performance, hard-deterministic workflow execution engine for OpenClaw Lobs
 
 - `cargo test`: Run test suite.
 - `cargo check`: Fast syntax and type check.
+
+## Standalone Productization
+
+Lobster Rust is designed for standalone deployment in critical document pipelines:
+
+- **Zero-Footprint Deployment**: Use the provided `Dockerfile` for a minimal, secure container environment.
+- **Workflow Automation**: Utilize `Justfile` for standard operational tasks (`just build`, `just mcp`, `just test`).
+- **Telemetry-First Operations**: Native OTLP support allows Lobster to plug directly into enterprise observability stacks (Honeycomb, Datadog, New Relic).
+- **Hard Determinism**: Ideal for AEC (Architecture, Engineering, Construction) and Biotech where execution consistency and auditability are non-negotiable.
+
+### Example Workflows
+Check the \`examples/\` directory for production-ready templates.

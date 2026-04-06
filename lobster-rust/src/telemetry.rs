@@ -30,7 +30,7 @@ pub fn init_telemetry(endpoint: &str, service_name: &str) -> Result<()> {
         .with(filter)
         .with(telemetry)
         .with(tracing_subscriber::fmt::layer())
-        .try_init()?;
+        .init();
 
     Ok(())
 }

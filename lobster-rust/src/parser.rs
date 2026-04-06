@@ -20,10 +20,8 @@ fn parse_yaml_workflow(content: &str) -> Result<Workflow> {
 }
 
 fn parse_markdown_workflow(content: &str) -> Result<Workflow> {
-    static RE: std::sync::LazyLock<Regex> = std::sync::LazyLock::new(|| {
-        Regex::new(r"(?s)^---\s*\n(.*?)\n---\s*\n").unwrap()
-    });
-    if let Some(caps) = RE.captures(content) {
+    let re = Regex::new(r"(?s)^---\s*\n(.*?)\n---\s*\n").unwrap();
+    if let Some(caps) = re.captures(content) {
         let yaml_frontmatter = caps.get(1).map_or("", |m| m.as_str());
         parse_yaml_workflow(yaml_frontmatter)
     } else {

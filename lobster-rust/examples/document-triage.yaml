@@ -1,0 +1,14 @@
+name: document-triage
+description: Automated triage of incoming documents by type and priority.
+args:
+  file_path:
+    description: Path to the incoming document.
+steps:
+  - id: identify
+    run: |
+      file_type=$(file --mime-type -b "${file_path}")
+      echo "{\"file_type\": \"$file_type\"}"
+  - id: triage
+    run: |
+      # Simulated triage logic
+      echo "Processing document of type: $file_type"
